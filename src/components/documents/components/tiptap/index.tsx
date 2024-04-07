@@ -34,6 +34,11 @@ const Tiptap = ({document, ...props}: TipTapProps) => {
     content: document.content,
     onUpdate: ({ editor }) => {
       props.onUpdate(document, editor.getHTML())
+      const mainH = window.document.querySelector("main")?.clientHeight
+      const screenH = window.innerHeight
+      if (mainH && screenH) {
+        window.scroll({top:(mainH + 32) - screenH}) 
+      }
     }
   })
 

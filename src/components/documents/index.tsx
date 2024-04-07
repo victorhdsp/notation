@@ -16,7 +16,7 @@ export default function Documents () {
   }
 
   return (
-    <div className={css["main"]}>
+    <main className={css["main"]}>
       {
         document ? (
           <Tiptap 
@@ -26,6 +26,6 @@ export default function Documents () {
         ) :
         "Você não tem documentos"
       }
-    </div> 
+    </main> 
   )
 }
