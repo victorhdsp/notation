@@ -1,0 +1,17 @@
+.bubble_menu {
+  @apply bg-gray-200;
+  @apply px-2 py-1;
+  @apply rounded-md;
+  @apply flex items-center gap-1;
+}
+
+.button {
+  @apply p-1;
+  @apply bg-slate-50;
+  @apply rounded-sm;
+}
+
+.hr {
+  @apply h-3 w-[2px];
+  @apply bg-slate-50;
+}

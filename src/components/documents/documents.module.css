@@ -1,0 +1,4 @@
+.main {
+  @apply w-full h-full;
+  @apply flex flex-col;
+}

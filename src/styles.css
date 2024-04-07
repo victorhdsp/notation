@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tw-bg-opacity: 1;
+  --remember-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
+html {
+  font-size: 68.5%;
+}
+
+button, a {
+  @apply cursor-pointer;
+}

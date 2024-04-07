@@ -1,0 +1,4 @@
+#header {
+  @apply bg-white w-full;
+  @apply flex justify-between items-end;
+}

@@ -1,0 +1,25 @@
+.editor {
+    @apply prose prose-2xl;
+    @apply w-full h-full max-w-none;
+    @apply flex flex-col;
+    @apply px-10 pt-6 pb-12; 
+    @apply outline-none;
+  }
+  .editor >* {
+    @apply w-full h-full;
+    @apply outline-none;
+}
+
+.taskItem {
+  @apply flex items-center gap-4;
+}
+.taskItem label {
+  @apply flex items-center;
+}
+.taskItem p {
+  @apply my-0;
+}
+
+.highlight {
+  @apply bg-[var(--remember-color)];
+} 

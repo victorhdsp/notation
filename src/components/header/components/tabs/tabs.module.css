@@ -1,0 +1,24 @@
+.tabList {
+  @apply w-full;
+  @apply flex gap-1;
+  @apply px-1 pt-1;
+  @apply bg-blue-200;
+}
+
+.tab {
+  @apply flex items-center;
+  @apply rounded-t-sm;
+  @apply bg-blue-50;
+  @apply max-w-[120px];
+  @apply px-4;
+  @apply whitespace-nowrap;
+  
+  &[data-state="true"] {
+    @apply bg-white;
+  }
+}
+.tab .text {
+  @apply py-2 h-full;
+  @apply flex items-center;
+  @apply overflow-hidden;
+}
