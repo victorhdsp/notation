@@ -27,4 +27,3 @@ Notation é um SaaS de anotações que imita meu sistema de anotações pessoal,
   [ ] I.A. for Exercises
   [ ] Recurring reminders
   [ ] Wiki integration for tags resumes
-  
