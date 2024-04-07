@@ -10,6 +10,7 @@ import Highlight from '@tiptap/extension-highlight'
 
 import BubbleMenu from "./components/bubbleMenu"
 import { DocumentState } from "../../../../types/document"
+import { useEffect } from "react"
 
 interface TipTapProps {
   document: DocumentState,
@@ -33,6 +34,11 @@ const Tiptap = ({document, ...props}: TipTapProps) => {
       props.onUpdate(document, editor.getHTML())
     }
   })
+
+  useEffect(() => {
+    editor?.commands.setContent(document.content)
+    window.scrollTo({top:0})
+  }, [document]) 
 
   return (
     <>

@@ -7,7 +7,9 @@ import { DocumentState } from '../types/document'
 
 interface DocumentStore {
   documents: DocumentState[],
-  updateContent: (document:DocumentState) => void
+  updateContent: (document:DocumentState) => void,
+  createNewDocument: () => void,
+  deleteDocument: (documentId: string) => void
 }
 
 const documentsState: DocumentState[] = [
@@ -38,7 +40,23 @@ const useDocumentStore = create<DocumentStore>()(
             return document
           }
         })
-      }))
+      })),
+      createNewDocument: () => set(({documents}) => {
+        const newDocument: DocumentState = {
+          id: window.crypto.randomUUID(),
+          title: "",
+          content: "",
+          remember: []
+        }
+        return { documents: [ ...documents, newDocument ] }
+      }),
+      deleteDocument: (documentId) => set(({documents}) => {
+        if (documents.length > 1) {
+          return { documents: documents.filter(doc => doc.id !== documentId) }
+        } else {
+          return { documents }
+        }
+      })
     }),
     {
       name: 'document-storage'

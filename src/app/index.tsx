@@ -5,14 +5,14 @@ import useDocumentStore from "../store/documentStore";
 import useGlobalStore from "../store/globalStore";
 
 function App() {
-  const firstDocumentId = useDocumentStore((store) => store.documents[0].id)
+  const firstDocument = useDocumentStore((store) => store.documents[0])
   const documents = useDocumentStore((store) => store.documents)
   const {selectDocument, selectedDocumentId} = useGlobalStore()
   
   const document = documents.find(doc => doc.id === selectedDocumentId)
 
-  if (!selectedDocumentId || !document) {
-    selectDocument(firstDocumentId)
+  if (!selectedDocumentId || !document && firstDocument) {
+    selectDocument(firstDocument.id)
   }
 
   return (

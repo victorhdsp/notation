@@ -6,19 +6,33 @@
 }
 
 .tab {
-  @apply flex items-center;
+  @apply flex justify-between items-center gap-4;
   @apply rounded-t-sm;
   @apply bg-blue-50;
   @apply max-w-[120px];
-  @apply px-4;
+  @apply pr-4;
   @apply whitespace-nowrap;
   
   &[data-state="true"] {
     @apply bg-white;
   }
 }
+
 .tab .text {
-  @apply py-2 h-full;
+  @apply pl-4 py-2 h-full;
   @apply flex items-center;
   @apply overflow-hidden;
+}
+
+.new-tab {
+  @apply flex items-center;
+  @apply rounded-t-sm;
+  @apply bg-blue-50;
+  @apply max-w-[120px];
+  @apply px-2 py-2;
+  @apply whitespace-nowrap;
+  
+  &[data-state="true"] {
+    @apply bg-white;
+  }
 }

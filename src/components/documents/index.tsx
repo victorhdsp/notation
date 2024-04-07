@@ -18,12 +18,13 @@ export default function Documents () {
   return (
     <div className={css["main"]}>
       {
-        document && (
+        document ? (
           <Tiptap 
             document={document}
             onUpdate={handleUpdate}
           />
-        )
+        ) :
+        "Você não tem documentos"
       }
     </div> 
   )

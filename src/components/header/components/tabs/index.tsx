@@ -4,9 +4,10 @@ import useGlobalStore from "../../../../store/globalStore"
 import useDocumentStore from "../../../../store/documentStore";
 
 import cheerio from "cheerio"
+import { Plus, X } from "lucide-react";
 
 export default function Tabs () {
-  const documents = useDocumentStore(store => store.documents)
+  const {documents, createNewDocument, deleteDocument} = useDocumentStore()
   const {selectDocument, selectedDocumentId} = useGlobalStore()
 
   return (
@@ -17,15 +18,23 @@ export default function Tabs () {
           <div 
             className={css["tab"]}
             key={`header_${document.id}`}
-            onClick={() => selectDocument(document.id)}
             data-state={selectedDocumentId === document.id}
-          >
-            <span className={css["text"]}>
+            >
+            <span 
+              className={css["text"]}
+              onClick={() => selectDocument(document.id)}
+            >
               { document.title || $("h1").first().text() || "Novo documento" }
             </span>
+            <button onClick={() => deleteDocument(document.id)}>
+              <X size={18} strokeWidth={1} />
+            </button>
           </div> 
         )
       })}
+      <button className={css["new-tab"]} onClick={createNewDocument}>
+        <Plus size={18} strokeWidth={1} />
+      </button>
     </div>
   )
 }
