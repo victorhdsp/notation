@@ -1,2 +1,29 @@
 # Notation
- É um SaaS de anotações, o objetivo é simular o meu sistema de anotações pessoais e integrar a uma inteligência artificial para construir exercícios a partir das anotações.
+ 
+## Objetivo:
+
+Notation é um SaaS de anotações que imita meu sistema de anotações pessoal, porem integrado a uma inteligência artificial que vai criar exercícios baseados nas anotações.
+
+## FEATURES:
+- Sistema
+  [ ] Payment
+  [ ] Shared notations
+  [ ] Login
+
+- Sistema de arquivos
+  [x] Tabs
+  [ ] Folders
+  [ ] Search
+  [ ] "CRTL + k"
+
+- Editor
+  [x] Headings
+  [x] Bold
+  [x] Unordered and ordered lists
+  [x] Highlights for after search's
+  [ ] Placeholder (Trailing)
+  
+- Estudos
+  [ ] I.A. for Exercises
+  [ ] Recurring reminders
+  [ ] Wiki integration for tags resumes
