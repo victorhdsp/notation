@@ -1,23 +1,24 @@
 .editor {
-    @apply prose prose-2xl;
+    @apply prose prose-xl; 
     @apply w-full h-full max-w-none;
     @apply flex flex-col;
     @apply px-10 pt-6 pb-12; 
     @apply outline-none;
   }
-  .editor >* {
+.editor >* {
     @apply w-full h-full;
     @apply outline-none;
 }
 
-.taskItem {
+.editor .taskItem {
   @apply flex items-center gap-4;
 }
-.taskItem label {
+.editor .taskItem label {
   @apply flex items-center;
 }
-.taskItem p {
-  @apply my-0;
+.editor .taskItem p,
+.editor li p {  
+  @apply my-0; 
 }
 
 .highlight {
