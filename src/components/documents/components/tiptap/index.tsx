@@ -11,6 +11,7 @@ import Highlight from '@tiptap/extension-highlight'
 import BubbleMenu from "./components/bubbleMenu"
 import { DocumentState } from "../../../../types/document"
 import { useEffect } from "react"
+import useGlobalStore from "../../../../store/globalStore"
 
 interface TipTapProps {
   document: DocumentState,
@@ -18,6 +19,7 @@ interface TipTapProps {
 }
 
 const Tiptap = ({document, ...props}: TipTapProps) => {
+  const selectedDocumentId = useGlobalStore(store => store.selectedDocumentId)
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -38,7 +40,7 @@ const Tiptap = ({document, ...props}: TipTapProps) => {
   useEffect(() => {
     editor?.commands.setContent(document.content)
     window.scrollTo({top:0})
-  }, [document]) 
+  }, [selectedDocumentId]) 
 
   return (
     <>
