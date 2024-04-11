@@ -6,6 +6,7 @@
   @apply relative;
   @apply transition-colors;
   @apply pointer-events-auto;
+  @apply transform translate-x-2/3;
 
   &:hover {
     @apply bg-blue-200;
