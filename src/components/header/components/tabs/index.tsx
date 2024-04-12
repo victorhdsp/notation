@@ -5,6 +5,7 @@ import useDocumentStore from "../../../../store/documentStore";
 
 import cheerio from "cheerio"
 import { Plus, X } from "lucide-react";
+import FileContext from "../../../context/file";
 
 export default function Tabs () {
   const {documents: RootDocs} = useDocumentStore()
@@ -17,21 +18,23 @@ export default function Tabs () {
       {documents.map((document) => {
         const $ = cheerio.load(document.content);
         return (
-          <div 
-            className={css["tab"]}
-            key={`header_${document.id}`}
-            data-state={selectedDocumentId === document.id}
-          >
-            <span 
-              className={css["text"]}
-              onClick={() => selectDocument(document.id)}
+          <FileContext document={document}>
+            <div 
+              className={css["tab"]}
+              key={`header_${document.id}`}
+              data-state={selectedDocumentId === document.id}
             >
-              { document.title || $("h1").first().text() || "Novo documento" }
-            </span>
-            <button onClick={() => removeDocumentFromTab(document.id)}>
-              <X size={18} strokeWidth={1} />
-            </button>
-          </div> 
+              <span 
+                className={css["text"]}
+                onClick={() => selectDocument(document.id)}
+              >
+                { document.title || $("h1").first().text() || "Novo documento" }
+              </span>
+              <button onClick={() => removeDocumentFromTab(document.id)}>
+                <X size={18} strokeWidth={1} />
+              </button>
+            </div> 
+          </FileContext>
         )
       })}
     </div>

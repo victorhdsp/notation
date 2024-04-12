@@ -1,0 +1,18 @@
+.content {
+  @apply flex flex-col gap-2;
+  @apply p-2;
+  @apply bg-blue-200;
+  @apply rounded-md;
+  @apply pointer-events-auto;
+}
+
+.item {
+  @apply p-1 rounded-md;
+  @apply flex items-center gap-2;
+  @apply cursor-pointer;
+  @apply transition-all duration-200;
+
+  &:hover {
+    @apply bg-blue-100;
+  }
+}

@@ -7,6 +7,7 @@ import cheerio from "cheerio"
 import { File, Plus } from "lucide-react";
 import useGlobalStore from "../../../../../store/globalStore";
 import useDocumentStore from "../../../../../store/documentStore";
+import FileContext from "../../../../context/file";
 
 interface ArchivesContentProps {
   documents: DocumentState[]
@@ -22,16 +23,17 @@ export default function ArchivesContent ({documents}:ArchivesContentProps) {
           const $ = cheerio.load(document.content);
 
           return (
-            <span
-              className={css["item"]} 
-              key={document.id}
-              onClick={() => addDocumentToTab(document.id)}
-            >
-              <File size={16} strokeWidth={1} />
-              <p className="pointer-events-none">
-                { document.title || $("h1").first().text() || "Novo documento" }
-              </p>
-            </span>
+            <FileContext document={document} key={document.id}>
+              <span
+                className={css["item"]}
+                onClick={() => addDocumentToTab(document.id)}
+              >
+                <File size={16} strokeWidth={1} />
+                <p className="pointer-events-none">
+                  { document.title || $("h1").first().text() || "Novo documento" }
+                </p>
+              </span>
+            </FileContext>
           )
         })}
         <button className={css["item"]} onClick={createNewDocument}>
