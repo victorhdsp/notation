@@ -7,7 +7,7 @@ import useGlobalStore from "../store/globalStore";
 function App() {
   const firstDocument = useDocumentStore((store) => store.documents[0])
   const documents = useDocumentStore((store) => store.documents)
-  const {selectDocument, selectedDocumentId, documentsInTab, addDocumentToTab} = useGlobalStore()
+  const {selectDocument, selectedDocumentId, addDocumentToTab} = useGlobalStore()
   
   const document = documents.find(doc => doc.id === selectedDocumentId)
 
