@@ -14,3 +14,7 @@ html {
 button, a {
   @apply cursor-pointer;
 }
+
+* {
+  outline: none;
+}
