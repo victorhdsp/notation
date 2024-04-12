@@ -1,0 +1,10 @@
+.archives {
+  @apply flex flex-col justify-center items-center;
+}
+
+.actions {
+  @apply fixed bottom-2 left-1/2;
+  @apply transform -translate-x-1/2;
+  @apply w-4/5 mx-auto;
+  @apply pointer-events-none;
+} 

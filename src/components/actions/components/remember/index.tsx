@@ -15,14 +15,15 @@ export default function Remember () {
 
   return (<>{
     document && (
-      <Accordion.Root type="multiple" className="w-full">
-        <Accordion.Item className={css["remember"]} value="1">
-          { document.remember.length !== 0 && 
-              <RememberContent remember={document.remember} /> 
-          }
-          <RememberTrigger remember={document.remember} />
-        </Accordion.Item>
-      </Accordion.Root>
+      <Accordion.Item 
+        className={`${css["remember"]} ${css["actions"]}`} 
+        value="remember"
+      >
+        { document.remember.length !== 0 && 
+            <RememberContent remember={document.remember} /> 
+        }
+        <RememberTrigger remember={document.remember} />
+      </Accordion.Item>
     )
   }</>)
 }

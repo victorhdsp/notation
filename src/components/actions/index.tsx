@@ -1,12 +1,14 @@
-import css from "./actions.module.css"
+import { Root as AccordionRoot } from "@radix-ui/react-accordion";
 
-import Remember from "./components/remembers";
+import Remember from "./components/remember";
+import Archives from "./components/archives";
 
 export default function Actions () {
 
   return (<>{
-    <div className={css["actions"]}>
+    <AccordionRoot type="multiple">
+      <Archives />
       <Remember />
-    </div>
+    </AccordionRoot>
   }</>)
 }

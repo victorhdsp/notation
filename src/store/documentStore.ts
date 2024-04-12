@@ -9,6 +9,7 @@ interface DocumentStore {
   documents: DocumentState[],
   updateContent: (document:DocumentState) => void,
   createNewDocument: () => void,
+  renameDocument: (documentId: string, newTitle: string) => void,
   deleteDocument: (documentId: string) => void
 }
 
@@ -50,6 +51,15 @@ const useDocumentStore = create<DocumentStore>()(
         }
         return { documents: [ ...documents, newDocument ] }
       }),
+      renameDocument: (documentId, newTitle) => set(({documents}) => ({
+        documents: documents.map((document) => {
+          if (document.id === documentId) {
+            return { ...document, title: newTitle }
+          } else {
+            return document
+          }
+        })
+      })),
       deleteDocument: (documentId) => set(({documents}) => {
         if (documents.length > 1) {
           return { documents: documents.filter(doc => doc.id !== documentId) }
