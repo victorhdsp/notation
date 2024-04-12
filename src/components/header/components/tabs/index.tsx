@@ -4,7 +4,7 @@ import useGlobalStore from "../../../../store/globalStore"
 import useDocumentStore from "../../../../store/documentStore";
 
 import cheerio from "cheerio"
-import { Plus, X } from "lucide-react";
+import { X } from "lucide-react";
 import FileContext from "../../../context/file";
 
 export default function Tabs () {
