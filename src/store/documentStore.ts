@@ -4,13 +4,17 @@ import { persist } from 'zustand/middleware'
 import cheerio from "cheerio"
 
 import { DocumentState } from '../types/document'
+import useGlobalStore from './globalStore'
+
+const addDocumentToTab = useGlobalStore.getState().addDocumentToTab
 
 interface DocumentStore {
   documents: DocumentState[],
   updateContent: (document:DocumentState) => void,
   createNewDocument: () => void,
-  renameDocument: (documentId: string, newTitle: string) => void,
   deleteDocument: (documentId: string) => void
+
+  changeFolder: (documentId: string, folderName: string) => void,
 }
 
 const documentsState: DocumentState[] = [
@@ -18,7 +22,8 @@ const documentsState: DocumentState[] = [
     id: "1",
     title: "",
     content: "<h1>Tip tap, Hello World!</h1>",
-    remember: []
+    remember: [],
+    folder: ""
   }
 ]
 
@@ -49,12 +54,15 @@ const useDocumentStore = create<DocumentStore>()(
           content: "",
           remember: []
         }
+        
+        setTimeout(() => addDocumentToTab(newDocument.id), 0)
+
         return { documents: [ ...documents, newDocument ] }
       }),
-      renameDocument: (documentId, newTitle) => set(({documents}) => ({
+      changeFolder: (documentId, folderName) => set(({documents}) => ({
         documents: documents.map((document) => {
           if (document.id === documentId) {
-            return { ...document, title: newTitle }
+            return { ...document, folder: folderName }
           } else {
             return document
           }
