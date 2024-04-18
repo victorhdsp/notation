@@ -1,0 +1,17 @@
+.content {
+  @apply flex flex-col gap-2;
+  @apply px-3 py-3;
+  @apply my-2 mx-3;
+  @apply bg-blue-50;
+  @apply rounded-md;
+  @apply pointer-events-auto;
+}
+
+.item {
+  @apply px-2 py-1 rounded-md;
+  @apply bg-[var(--remember-color)];
+}
+
+.opacity-slider {
+  @apply flex items-center gap-2;
+}
