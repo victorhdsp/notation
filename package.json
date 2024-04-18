@@ -10,11 +10,13 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@aarkue/tiptap-math-extension": "^1.2.2",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-context-menu": "^2.1.5",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-hover-card": "^1.0.7",
     "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@tauri-apps/api": "^1",
     "@tiptap/extension-bubble-menu": "^2.2.4",
@@ -25,6 +27,7 @@
     "@tiptap/react": "^2.2.4",
     "@tiptap/starter-kit": "^2.2.4",
     "cheerio": "1.0.0-rc.12",
+    "katex": "^0.16.10",
     "lucide-react": "^0.364.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
