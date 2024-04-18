@@ -1,4 +1,5 @@
 .main {
   @apply w-full h-full mt-12;
   @apply flex flex-col;
+  @apply overflow-y-auto;
 }

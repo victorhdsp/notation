@@ -1,0 +1,4 @@
+#app {
+  @apply h-screen;
+  @apply flex flex-col;
+}
