@@ -3,7 +3,6 @@
   @apply p-2;
   @apply bg-blue-200;
   @apply rounded-md;
-  @apply pointer-events-auto;
 }
 
 .item {
