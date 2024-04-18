@@ -1,14 +1,14 @@
-import css from "./remember.module.css"
+import css from "./fileEdit.module.css"
 
-import RememberContent from "./content";
-import RememberTrigger from "./trigger";
+import FileEditContent from "./content";
+import FileEditTrigger from "./trigger";
 
 import { Root as PopoverRoot } from '@radix-ui/react-popover';
 
 import useDocumentStore from "../../../../store/documentStore";
 import useGlobalStore from "../../../../store/globalStore";
 
-export default function Remember () {
+export default function FileEdit () {
   const documents = useDocumentStore(store => store.documents)
   const selectedDocumentId = useGlobalStore(store => store.selectedDocumentId)
 
@@ -16,12 +16,10 @@ export default function Remember () {
 
   return (<>{
     document && (
-      <div className={`${css["remember"]} ${css["actions"]}`}>
+      <div className={`${css["fileEdit"]} ${css["actions"]}`}>
         <PopoverRoot>
-          { document.remember.length !== 0 && 
-              <RememberContent remember={document.remember} /> 
-          }
-          <RememberTrigger remember={document.remember} />
+          <FileEditContent /> 
+          <FileEditTrigger />
         </PopoverRoot>
       </div>
     )

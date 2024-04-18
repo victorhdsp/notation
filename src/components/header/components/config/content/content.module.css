@@ -5,16 +5,13 @@
   @apply bg-blue-50;
   @apply rounded-md;
   @apply pointer-events-auto;
-  @apply min-w-[60vw];
 }
 
 .item {
   @apply px-2 py-1 rounded-md;
-  @apply flex items-center gap-2;
-  @apply cursor-pointer;
-  @apply transition-all duration-200;
+  @apply bg-[var(--remember-color)];
+}
 
-  &:hover {
-    @apply bg-blue-100;
-  }
+.opacity-slider {
+  @apply flex items-center gap-2;
 }

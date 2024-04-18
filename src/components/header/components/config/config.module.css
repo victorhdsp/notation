@@ -1,7 +1,8 @@
-.archives {
+.config {
   @apply flex flex-col justify-center items-center;
 }
 
 .actions {
   @apply pointer-events-none;
+  @apply pr-1;
 } 

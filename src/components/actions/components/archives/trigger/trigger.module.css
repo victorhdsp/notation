@@ -1,12 +1,10 @@
 .button {
-  @apply m-1;
   @apply px-2 py-2;
   @apply bg-blue-100;
   @apply rounded-md;
   @apply relative;
   @apply transition-colors;
   @apply pointer-events-auto;
-  @apply transform -translate-x-2/3;
 
   &:hover {
     @apply bg-blue-200;
