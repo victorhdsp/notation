@@ -11,10 +11,13 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+      "all": true,
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "setDecorations": true
       }
     },
     "windows": [
@@ -22,7 +25,8 @@
         "title": "Notation",
         "width": 400,
         "height": 600,
-        "transparent": true
+        "transparent": true,
+        "decorations": false
       }
     ],
     "security": {

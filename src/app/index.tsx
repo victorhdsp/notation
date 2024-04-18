@@ -4,6 +4,8 @@ import Actions from "../components/actions";
 import useDocumentStore from "../store/documentStore";
 import useGlobalStore from "../store/globalStore";
 import useConfigStore from "../store/configStore";
+import { useEffect } from "react";
+import { appWindow } from "@tauri-apps/api/window"
 
 function App() {
   const firstDocument = useDocumentStore((store) => store.documents[0])
@@ -17,6 +19,10 @@ function App() {
     selectDocument(firstDocument.id)
     addDocumentToTab(firstDocument.id)
   }
+
+  useEffect(() => {
+    appWindow.setDecorations(true)
+  }, [])
 
   return (
     <div 
