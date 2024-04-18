@@ -1,0 +1,7 @@
+.fileEdit {
+  @apply flex flex-col justify-center items-center;
+}
+
+.actions {
+  @apply pointer-events-none;
+} 
