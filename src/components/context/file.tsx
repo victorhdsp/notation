@@ -23,13 +23,11 @@ export default function FileContext (props:FileContextProps) {
         {props.children}
       </ContextMenu.Trigger>
 
-      <ContextMenu.Portal>
-        <ContextMenu.Content className={css["content"]}>
-          <ContextItem title="Deletar" onClick={handleDelete}>
-            <Trash size={16} strokeWidth={1} />
-          </ContextItem>
-        </ContextMenu.Content>
-      </ContextMenu.Portal>
+      <ContextMenu.Content className={css["content"]}>
+        <ContextItem title="Deletar" onClick={handleDelete}>
+          <Trash size={16} strokeWidth={1} />
+        </ContextItem>
+      </ContextMenu.Content>
     </ContextMenu.Root>
   )
 }
