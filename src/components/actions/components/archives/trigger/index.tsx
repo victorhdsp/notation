@@ -1,22 +1,19 @@
 import css from "./trigger.module.css"
-import { Folder } from "lucide-react"
-import * as Accordion from '@radix-ui/react-accordion';
+import { Folders } from "lucide-react"
 
-interface ArchivesTriggerProps {
-  files: number
-}
+import { PopoverTrigger } from '@radix-ui/react-popover';
 
-export default function RememberTrigger ({files}: ArchivesTriggerProps) {
+import useDocumentStore from "../../../../../store/documentStore";
+
+export default function RememberTrigger () {
+  const files = useDocumentStore(store => store.documents.length)
+
   return (
-    <Accordion.Header>
-      <Accordion.Trigger>
-        <div 
-          className={css["button"]} 
-          data-archives={files}
-        >
-          <Folder size={22} strokeWidth={1} />
-        </div>
-      </Accordion.Trigger>
-    </Accordion.Header>
+    <PopoverTrigger
+      className={css["button"]} 
+      data-archives={files}
+    >
+      <Folders size={22} strokeWidth={1} />
+    </PopoverTrigger>
   )
 }

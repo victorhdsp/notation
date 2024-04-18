@@ -1,46 +1,46 @@
 import css from "./content.module.css"
-import * as Accordion from '@radix-ui/react-accordion';
 
+import { PopoverContent } from '@radix-ui/react-popover';
+import { Root as AccordionRoot } from '@radix-ui/react-accordion';
+import { Plus } from "lucide-react";
+
+import FilesContentFolders from "./components/folders";
+
+import useDocumentStore from "../../../../../store/documentStore";
 import { DocumentState } from "../../../../../types/document";
 
-import cheerio from "cheerio"
-import { File, Plus } from "lucide-react";
-import useGlobalStore from "../../../../../store/globalStore";
-import useDocumentStore from "../../../../../store/documentStore";
-import FileContext from "../../../../context/file";
-
-interface ArchivesContentProps {
-  documents: DocumentState[]
-}
-export default function ArchivesContent ({documents}:ArchivesContentProps) {
-  const addDocumentToTab = useGlobalStore(store => store.addDocumentToTab)
+export default function ArchivesContent () {
+  const documents = useDocumentStore(store => store.documents)
   const createNewDocument = useDocumentStore(store => store.createNewDocument)
+
+  const splitedDocuments:{[key: string]: DocumentState[]} = {}
+
+  documents.forEach((document) => {
+    const folder = document?.folder || 'root'
+
+    splitedDocuments[folder] ? 
+      splitedDocuments[folder].push(document) : 
+      splitedDocuments[folder] = [document]
+  })
   
   return (
-    <Accordion.Content className="w-full">
+    <PopoverContent className="w-full">
       <div className={css["content"]}>
-        {documents.map((document) => {
-          const $ = cheerio.load(document.content);
+        <AccordionRoot type="multiple">
+          {Object.values(splitedDocuments).map((documents, index) => (
+            <FilesContentFolders 
+              title={Object.keys(splitedDocuments)[index]} 
+              key={`folders_${index}`} 
+              folder={documents} 
+            />
+          ))}
+        </AccordionRoot>
 
-          return (
-            <FileContext document={document} key={document.id}>
-              <span
-                className={css["item"]}
-                onClick={() => addDocumentToTab(document.id)}
-              >
-                <File size={16} strokeWidth={1} />
-                <p className="pointer-events-none">
-                  { document.title || $("h1").first().text() || "Novo documento" }
-                </p>
-              </span>
-            </FileContext>
-          )
-        })}
         <button className={css["item"]} onClick={createNewDocument}>
           <Plus size={18} strokeWidth={1} />
           <p className="pointer-events-none">Novo documento</p>
         </button>
       </div>
-    </Accordion.Content>
+    </PopoverContent>
   )
 }

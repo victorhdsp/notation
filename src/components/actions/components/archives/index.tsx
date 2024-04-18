@@ -2,22 +2,18 @@ import css from "./archives.module.css"
 
 import ArchivesContent from "./content";
 import ArchivesTrigger from "./trigger";
-import * as Accordion from '@radix-ui/react-accordion';
 
-import useDocumentStore from "../../../../store/documentStore";
+import { Root as PopoverRoot } from '@radix-ui/react-popover';
 
 export default function Archives () {
-  const documents = useDocumentStore(store => store.documents)
-
   return (<>{
     document && (
-      <Accordion.Item 
-        className={`${css["archives"]} ${css["actions"]}`} 
-        value="archives"
-      >
-        <ArchivesContent documents={documents} /> 
-        <ArchivesTrigger files={documents.length} />
-      </Accordion.Item>
+      <div className={`${css["archives"]} ${css["actions"]}`}>
+        <PopoverRoot>
+          <ArchivesContent /> 
+          <ArchivesTrigger />
+        </PopoverRoot>
+      </div>
     )
   }</>)
 }

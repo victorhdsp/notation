@@ -5,9 +5,10 @@
   @apply bg-blue-50;
   @apply rounded-md;
   @apply pointer-events-auto;
+  @apply min-w-[70vw] min-h-36;
 }
 
 .item {
-  @apply px-2 py-1 rounded-md;
+  @apply px-2 py-1 rounded-md h-max;
   @apply bg-[var(--remember-color)];
 }

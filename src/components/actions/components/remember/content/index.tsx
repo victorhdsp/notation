@@ -1,5 +1,5 @@
 import css from "./content.module.css"
-import * as Accordion from '@radix-ui/react-accordion';
+import { PopoverContent } from '@radix-ui/react-popover';
 
 interface RememberContentProps {
   remember: string[]
@@ -8,7 +8,7 @@ interface RememberContentProps {
 export default function RememberContent ({remember}:RememberContentProps) {
 
   return (
-    <Accordion.Content className="w-full">
+    <PopoverContent className="w-full">
       <div className={css["content"]}>
         {remember.map((text) => (
           <p
@@ -19,6 +19,6 @@ export default function RememberContent ({remember}:RememberContentProps) {
           </p>
         ))}
       </div>
-    </Accordion.Content>
+    </PopoverContent>
   )
 }
