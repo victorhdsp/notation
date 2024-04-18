@@ -3,6 +3,7 @@
   @apply flex gap-1;
   @apply px-1 pt-1;
   @apply bg-blue-200;
+  @apply overflow-x-auto;
 }
 
 .tab {
