@@ -14,7 +14,8 @@ interface DocumentStore {
   createNewDocument: () => void,
   deleteDocument: (documentId: string) => void
 
-  changeFolder: (documentId: string, folderName: string) => void,
+  addFolder: (documentId: string, folderName: string) => void,
+  removeFolder: (documentId: string, folderName: string) => void
 }
 
 const documentsState: DocumentState[] = [
@@ -23,7 +24,7 @@ const documentsState: DocumentState[] = [
     title: "",
     content: "<h1>Tip tap, Hello World!</h1>",
     remember: [],
-    folder: ""
+    folders: []
   }
 ]
 
@@ -52,29 +53,42 @@ const useDocumentStore = create<DocumentStore>()(
           id: window.crypto.randomUUID(),
           title: "",
           content: "",
-          remember: []
+          remember: [],
+          folders: []
         }
         
         setTimeout(() => addDocumentToTab(newDocument.id), 0)
 
         return { documents: [ ...documents, newDocument ] }
       }),
-      changeFolder: (documentId, folderName) => set(({documents}) => ({
-        documents: documents.map((document) => {
-          if (document.id === documentId) {
-            return { ...document, folder: folderName }
-          } else {
-            return document
-          }
-        })
-      })),
       deleteDocument: (documentId) => set(({documents}) => {
         if (documents.length > 1) {
           return { documents: documents.filter(doc => doc.id !== documentId) }
         } else {
           return { documents }
         }
-      })
+      }),
+      addFolder: (documentId, folderName) => set(({documents}) => ({
+        documents: documents.map((document) => {
+          if (document.id === documentId) {
+            const folders = document.folders || []
+            folders.push(folderName)
+            return { ...document, folders }
+          } else {
+            return document
+          }
+        })
+      })),
+      removeFolder: (documentId, folderName) => set(({documents}) => ({
+        documents: documents.map((document) => {
+          if (document.id === documentId) {
+            const folders = document.folders || []
+            return { ...document, folders: folders.filter((folder) => folder !== folderName) }
+          } else {
+            return document
+          }
+        })
+      }))
     }),
     {
       name: 'document-storage'
