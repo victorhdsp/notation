@@ -16,17 +16,25 @@ export default function ArchivesContent () {
   const splitedDocuments:{[key: string]: DocumentState[]} = {}
 
   documents.forEach((document) => {
-    const folder = document?.folder || 'root'
+    let folders = document?.folders || []
+    if (folders.length === 0) {
+      folders = ["root"]
+    }
 
-    splitedDocuments[folder] ? 
-      splitedDocuments[folder].push(document) : 
-      splitedDocuments[folder] = [document]
+    folders.forEach((folder) => {
+      splitedDocuments[folder] ? 
+        splitedDocuments[folder].push(document) : 
+        splitedDocuments[folder] = [document]
+    })
   })
   
   return (
     <PopoverContent className="w-full">
       <div className={css["content"]}>
-        <AccordionRoot type="multiple">
+        <AccordionRoot 
+          className="max-h-[60vh] overflow-y-auto" 
+          type="multiple"
+        >
           {Object.values(splitedDocuments).map((documents, index) => (
             <FilesContentFolders 
               title={Object.keys(splitedDocuments)[index]} 
