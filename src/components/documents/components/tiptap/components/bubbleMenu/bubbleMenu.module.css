@@ -2,7 +2,7 @@
   @apply bg-gray-200;
   @apply px-2 py-1;
   @apply rounded-md;
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-2;
 }
 
 .button {
@@ -12,6 +12,6 @@
 }
 
 .hr {
-  @apply h-3 w-[2px];
+  @apply h-3 w-[1px];
   @apply bg-slate-50;
 }

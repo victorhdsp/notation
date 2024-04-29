@@ -2,7 +2,6 @@ import css from "./bubbleMenu.module.css"
 import { BubbleMenu as _BubbleMenu, BubbleMenuProps } from "@tiptap/react"
 import { Bold, Bookmark, LucideIcon } from "lucide-react"
 
-
 interface ButtonProps {
   Icon: LucideIcon
   onClick?: () => void
@@ -24,7 +23,6 @@ export default function BubbleMenu (props: Partial<BubbleMenuProps>) {
       {...props}
     >
       <Button Icon={Bold} onClick={handleBold}/>
-      <div className={css["hr"]} />
       <Button Icon={Bookmark} onClick={handleBookmark} />
     </_BubbleMenu>
   )
