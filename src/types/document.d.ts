@@ -3,5 +3,5 @@ export interface DocumentState {
     title: string,
     content: string,
     remember: string[],
-    folder?: string,
+    folders?: string[],
 }
