@@ -1,0 +1,24 @@
+.tags {
+  @apply p-2;
+  @apply flex gap-2 items-center;
+}
+
+.tag {
+  @apply bg-blue-100 p-1 rounded-md;
+  @apply flex gap-1 items-center;
+  @apply w-max;
+}
+
+.new-tag {
+  @apply bg-blue-200 p-1 rounded-full;
+  @apply flex items-center justify-center;
+  @apply transition-colors duration-200;
+
+  &:hover {
+    @apply bg-blue-300;
+  }
+}
+
+.new-tag-content {
+  @apply bg-gray-100 p-1 rounded-md;
+}

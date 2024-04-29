@@ -12,7 +12,7 @@ Notation é um SaaS de anotações que imita meu sistema de anotações pessoal,
 
 - Sistema de arquivos
   [x] Tabs
-  [ ] Folders
+  [x] Folders
   [ ] Search
   [ ] "CRTL + k"
 
