@@ -26,7 +26,7 @@ const useGlobalStore = create<GlobalStore>()(
         const ids: string[] = state.documentsInTab.filter((docId) => docId !== id)
 
         if (state.selectedDocumentId === id) {
-          set({ selectedDocumentId: ids[0] })
+          set({ selectedDocumentId: '' })
         }
 
         return { documentsInTab: ids }
