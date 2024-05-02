@@ -12,9 +12,11 @@ interface HeadingsItemProps {
 }
 
 export default function HeadingsItem (props:HeadingsItemProps) {
-  const handleHeading1 = () => props.editor.chain().focus().setHeading({ level: 1 }).run()
-  const handleHeading2 = () => props.editor.chain().focus().setHeading({ level: 2 }).run()
-  const handleHeading3 = () => props.editor.chain().focus().setHeading({ level: 3 }).run()
+  const handleHeading = (level:number=1) => {
+    const { $from } = props.editor.state.selection
+    props.editor.commands.deleteRange({from: $from.start(), to: $from.end()})
+    props.editor.chain().focus().setHeading({ level: (level as any)}).run()
+  }
 
   return (
     <NavigationMenu.Item>
@@ -25,19 +27,19 @@ export default function HeadingsItem (props:HeadingsItemProps) {
             Icon={Heading1}
             title="Nome da página"
             subtitle="# <Nome da página>"
-            onClick={handleHeading1}
+            onClick={() => handleHeading(1)}
           />
           <GenericButton
             Icon={Heading2}
             title="Titulo"
             subtitle="## <Titulo da seção>"
-            onClick={handleHeading2}
+            onClick={() => handleHeading(2)}
           />
           <GenericButton
             Icon={Heading3}
             title="Subtitulo"
             subtitle="### <Subtitulo da seção>"
-            onClick={handleHeading3}
+            onClick={() => handleHeading(3)}
           />
         </ul>
       </NavigationMenu.Content>

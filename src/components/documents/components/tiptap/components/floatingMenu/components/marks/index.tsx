@@ -11,10 +11,21 @@ interface MarksItemProps {
   editor: Editor
 }
 
+type TypeList = "ordered" | "unordered" | "checks"
+
 export default function MarksItem (props:MarksItemProps) {
-  const handleListOrdered = () => props.editor.chain().focus().toggleOrderedList().run()
-  const handleList = () => props.editor.chain().focus().toggleBulletList().run()
-  const handleListChecks = () => props.editor.chain().focus().toggleTaskList().run()
+  const handleList = (typeList:TypeList) => {
+    const { $from } = props.editor.state.selection
+    props.editor.commands.deleteRange({from: $from.start(), to: $from.end()})
+    
+    if (typeList === "ordered") {
+      props.editor.chain().focus().toggleOrderedList().run()
+    } else if (typeList === "unordered") {
+      props.editor.chain().focus().toggleBulletList().run()
+    } else if (typeList === "checks") {
+      props.editor.chain().focus().toggleTaskList().run()
+    }
+  }
 
   return (
     <NavigationMenu.Item>
@@ -28,19 +39,19 @@ export default function MarksItem (props:MarksItemProps) {
             Icon={ListOrdered}
             title="Lista ordenada"
             subtitle="1. <Texto>"
-            onClick={handleListOrdered}
+            onClick={() => handleList("ordered")}
           />
           <GenericButton
             Icon={List}
             title="Lista não ordenada"
             subtitle="* <Texto>"
-            onClick={handleList}
+            onClick={() => handleList("unordered")}
           />
           <GenericButton
             Icon={ListChecks}
             title="Checklist"
             subtitle="[] <Texto>"
-            onClick={handleListChecks}
+            onClick={() => handleList("checks")}
           />
         </ul>
       </NavigationMenu.Content>
