@@ -18,6 +18,7 @@ import FloatingMenu from "./components/floatingMenu"
 import useGlobalStore from "../../../../store/globalStore"
 
 import { DocumentState } from "../../../../types/document"
+import editorUpdate from "./editorUpdate"
 
 interface TipTapProps {
   document: DocumentState,
@@ -31,20 +32,18 @@ const Tiptap = ({document, ...props}: TipTapProps) => {
     extensions: [
       StarterKit,
       TaskList,
-      TaskItem.configure({
-        HTMLAttributes: { class: css["taskItem"] }
-      }),
-      Highlight.configure({
-        HTMLAttributes: { class: css["highlight"] }
-      }),
+      TaskItem.configure({ HTMLAttributes: { class: css["taskItem"] } }),
+      Highlight.configure({ HTMLAttributes: { class: css["highlight"] } }),
       MathExtension.configure({ evaluation: true, addInlineMath:true }),
       Placeholder.configure({
         placeholder: 'Digite "/" para ver os comandos disponíveis',
       })
     ],
     content: document.content,
-    onUpdate: ({ editor }) => {
+    onUpdate: (editorEventsUpdate) => {
+      const { editor } = editorEventsUpdate
       props.onUpdate(document, editor.getHTML())
+      editorUpdate(editorEventsUpdate)
     },
     editable: selectedDocumentId !== ""
   })
