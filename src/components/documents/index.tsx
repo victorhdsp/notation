@@ -27,7 +27,7 @@ export default function Documents () {
 
   return (
     <main className={css["main"]}>
-      <Tags />
+      { document && (<Tags />) }
       <Tiptap 
         document={document || defautlDocument}
         onUpdate={handleUpdate}
