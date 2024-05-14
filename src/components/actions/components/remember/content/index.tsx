@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import css from "./content.module.css"
 import { PopoverContent } from '@radix-ui/react-popover';
 
@@ -11,12 +12,12 @@ export default function RememberContent ({remember}:RememberContentProps) {
     <PopoverContent className="w-full">
       <div className={css["content"]}>
         {remember.map((text) => (
-          <p
+          <div
             className={css["item"]} 
             key={text}
           >
-            { text }
-          </p>
+            <p>{ text }</p>
+          </div>
         ))}
       </div>
     </PopoverContent>
