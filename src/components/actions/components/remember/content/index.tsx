@@ -1,4 +1,3 @@
-import { X } from "lucide-react";
 import css from "./content.module.css"
 import { PopoverContent } from '@radix-ui/react-popover';
 
