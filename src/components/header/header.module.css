@@ -1,5 +1,0 @@
-#header {
-  @apply bg-blue-200 w-full h-max py-1;
-  @apply flex justify-between items-start;
-  @apply fixed top-0 left-0 z-50;
-}

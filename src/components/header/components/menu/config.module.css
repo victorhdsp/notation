@@ -1,9 +1,0 @@
-.config {
-  @apply flex flex-col justify-center items-center;
-  @apply relative z-10;
-}
-
-.actions {
-  @apply pointer-events-none;
-  @apply pr-1;
-} 

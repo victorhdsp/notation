@@ -1,6 +1,0 @@
-.actions {
-  @apply flex justify-center items-center gap-1;
-  /* @apply fixed bottom-2 left-0 z-40; */
-  @apply w-full py-2;
-  @apply pointer-events-none;
-} 

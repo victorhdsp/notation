@@ -1,59 +1,62 @@
 # Notation
 
-![GitHub repo size](https://img.shields.io/github/repo-size/victorhdsp/notation?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/victorhdsp/notation?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/victorhdsp/notation?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/victorhdsp/notation?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/victorhdsp/notation?style=for-the-badge)
+Notation é um canal de estudos separado por pastas e arquivo, onde uma I.A. generativa é capaz de visualizar os arquivos em determinada pasta e fazer perguntas relacionadas, bem como montar testes e provas.
 
-<img src="./readme-hero.png" alt="Fundo com a tela do aplicativo do Notation"
+O objetivo é ajudar o aprendizado, nele tambem é possível marcar trechos não entendidos para ser buscado mais tarde.
 
-> Notation é um SaaS de anotações que imita meu sistema de anotações pessoal, porem integrado a uma inteligência artificial que vai criar exercícios baseados nas anotações.
+## Usabilidade
 
-### Ajustes e melhorias
+Notation não substitui um professor ou um curso apesar da I.A. mas permite transformar uma video aula do youtube em um curso, após assistir algum conteúdo basta vir ao Notation e explicar o conteúdo.
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
+Isso pode ser feito de 2 formas diferentes, sendo a primeira da maneira tradicional construindo e editando um documento de texto, após a criação do texto uma I.A. generativa vai verificar o texto e fazer perguntas ou por meio de um chat onde a I.A. generativa vai te fazer perguntas e apartir das suas respostas ela estruturar o documento para você.
 
-- Sistema
-  - [ ] Payment
-  - [ ] Shared notations
-  - [ ] Login
+Além da construção dos arquivos o software te permite construir testes a respeito de determinado conteúdo, tanto para fixar o conteúdo na mente como para atestar o aprendizado.
 
-- Sistema de arquivos
-  - [x] Tabs
-  - [x] Folders
-  - [ ] Search
-  - [ ] "CRTL + k"
+## Construção
 
-- Editor
-  - [x] Headings
-  - [x] Bold
-  - [x] Unordered and ordered lists
-  - [x] Highlights for after search's
-  - [ ] Placeholder (Trailing)
-  
-- Estudos
-  - [ ] I.A. for Exercises
-  - [ ] Recurring reminders
-  - [ ] Wiki integration for tags resumes
+Atualmente o Notation se encontra em estado de construção:
 
-## 💻 Pré-requisitos
+- Sistema:
+- [ ] verificação de e-mail. *3
+- [ ] criar uma conta. *3
+- [ ] conectar a uma conta. *3
+- [ ] recuperar senha. *3
+- [ ] gerenciamento de perfil. *4
+    - [ ] nome. *4
+    - [ ] notificações. *5
+- [ ] compartilhamento de arquivos e pastas. *5
+    - [ ] niveis de permissão. *5
+- [ ] tema claro/escuro *4
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+- Arquivos:
+- [ ] criar sistema de pastas. *2
+- [ ] criar um novo arquivo. *1
+- [ ] editar um arquivo. *1
+- [ ] deletar um arquivo. *2
+- [ ] pesquisa de conteúdo. *3
+- [ ] versionamento de arquivos.
+- [ ] recuperação de arquivos deletados. *4
+- [ ] importação e exportação de arquivos. *5
+- [ ] permitir o uso de LaTeX. *4
+- [ ] permitir inclusão de código. *4
+    - [ ] permitir rodar o código. *5
 
-- Você precisa da versão `26.1.4` ou superior do `<Docker>`.
-- Você precisa da versão `2.27.1` ou superior do `<Docker Compose>`.
+- Chat:
+- [ ] digitar textos comuns. *3
+- [ ] permitir o uso de LaTeX. *4
+- [ ] permiter inclusão de código. *4
+    - [ ] permitir rodar o código. *5
+- [ ] permitir o uso do chat por voz. *5
 
-## 🚀 Instalando Notation
+- I.A. generativa:
+- [ ] fazer perguntas relacionadas a um documento. *3
+- [ ] construir testes sobre vários tipos de conteúdo. *3
+- [ ] formatar respostas do usuário em texto estruturado como resumo. *4
+- [ ] sugestão de conteúdo relacionado. *5
 
-Para instalar o notation, siga estas etapas:
+- Integrações:
+- [ ] integração com o Youtube (transcrição do conteúdo para revisão). *5
+- [ ] integração com calendários. *5
 
-Linux e macOS:
-
-```
-$ docker-compose up
-```
-
-## 📝 Licença
-
-Esse projeto está sob a licença Apache 2.0. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+- Outros:
+- [ ] monitoramento de progresso baseado nas provas e testes. *6
