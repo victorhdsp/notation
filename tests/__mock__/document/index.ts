@@ -1,6 +1,6 @@
 import { IDocument } from "@/assets/types/document";
 
-const mockDocument: IDocument = {
+const mockDocumentComplete: IDocument = {
     head: {
         title: "Mock Document",
         createAt: new Date("2021-01-01"),
@@ -19,12 +19,11 @@ const mockDocument: IDocument = {
                     content: [
                         {
                             type: "text",
-                            text: "This is "
+                            text: "This is a "
                         },
                         {
-                            type: "text",
-                            text: "a paragraph",
-                            className: "font-bold"
+                            type: "strong",
+                            text: "a paragraph"
                         },
                     ]
                 },
@@ -42,9 +41,32 @@ const mockDocument: IDocument = {
         },
         {
             type: "empty",
+            content: [
+                {
+                    type: "placeholder",
+                    text: "This is a placeholder"
+                }
+            ]
+        }
+    ]
+};
+const mockDocumentInComplete: IDocument = {
+    head: {
+        title: "Mock Document",
+        createAt: new Date("2021-01-01"),
+        updateAt: new Date("2021-01-01")
+    },
+    body: [
+        {
+            type: "other" as "empty",
             content: []
         }
     ]
-}
+};
+
+const mockDocument = {
+    complete: mockDocumentComplete,
+    incomplete: mockDocumentInComplete
+};
 
 export default mockDocument;

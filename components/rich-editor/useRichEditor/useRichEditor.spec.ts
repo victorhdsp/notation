@@ -1,20 +1,21 @@
 import { describe, test, expect } from "vitest";
-import mockDocument from "../../../tests/__mock__/document";
-import useRichEditor from "./index";
-import { IParagraph } from "@/assets/types/document/paragraph";
+import resolveGrid from "./index";
+import mockDocument from "@/tests/__mock__/document";
 
 describe("useRichEditor", () => {
-  test("deve retornar os parágrafos de um documento em JSON.", () => {
-    const { read } = useRichEditor();
-    const mockParagraph = mockDocument.body[0].content[1] as IParagraph;
-    const response = read(mockParagraph);
+    test("quando envio um documento completo, deve retornar todos os elementos sem mensagem de erro.", () => {
+        const mock = mockDocument.complete.body;
+        const { read } = resolveGrid();
+        const response = read(mock);
 
-    expect(response).toEqual("read");
+        expect(response).toEqual('<div className="grid" style="grid-template-columns: 1fr 1fr;"><span><p>This is a </p><b>a paragraph</b></span><picture><img src="https://via.placeholder.com/150" alt="Placeholder"/></picture></div><span className="is-placeholder">This is a placeholder</span>');
+    });
 
-    expect(response).toEqual("<p>Teste de parágrafo</p>");
-  });
+    test("quando envio no documento um elemento que não existe, deve retornar o elemento com a mensagem de erro.", () => {
+        const mock = mockDocument.incomplete.body;
+        const { read } = resolveGrid();
+        const response = read(mock);
 
-  test.todo("deve retornar o 'grid' de um documento em JSON.");
-  test.todo("deve retornar a 'image' de um documento em JSON.");
-  test.todo("deve retornar o 'empty' de um documento em JSON.");
+        expect(response).toEqual('<span>O tipo de documento não é suportado.</span>');
+    });
 });
