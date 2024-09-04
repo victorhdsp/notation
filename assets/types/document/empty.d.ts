@@ -1,5 +1,8 @@
 
 export interface IEmpty {
     type: "empty",
-    content: []
+    content: {
+        type: "placeholder",
+        text: string
+    }[]
 }
