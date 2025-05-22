@@ -1,0 +1,39 @@
+name: Build Tauri App
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Executa apenas em pushes com tags tipo v1.0.0
+  workflow_dispatch:  # Permite rodar manualmente
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]  # Você pode adicionar macos-latest se quiser .dmg
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Build Tauri app
+        run: npm run tauri build
+
+      - name: Upload artefatos
+        uses: actions/upload-artifact@v4
+        with:
+          name: tauri-build-${{ matrix.os }}
+          path: |
+            src-tauri/target/release/bundle/**/*
