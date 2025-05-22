@@ -1,127 +1,42 @@
-import { IDocument } from "@/assets/types/document";
+import { IParagraph } from "@/assets/types/document/paragraph";
 
-const mockDocumentMultipleParagraph: IDocument = {
-    head: {
-        title: "Mock Document",
-        createAt: new Date("2021-01-01"),
-        updateAt: new Date("2021-01-01")
-    },
-    body: [
-        {
-            type: "paragraph",
-            content: [
-                {
-                    type: "text",
-                    text: "This is "
-                },
-                {
-                    type: "text",
-                    text: "a paragraph",
-                    className: "font-bold"
-                },
-            ]
-        }
-    ]
+const mockDocumentText: IParagraph = {
+    id: "1",
+    type: "text",
+    content: "Hello"
 }
-const mockDocumentUniqueParagraph: IDocument = {
-    head: {
-        title: "Mock Document",
-        createAt: new Date("2021-01-01"),
-        updateAt: new Date("2021-01-01")
-    },
-    body: [
-        {
-            type: "paragraph",
-            content: [
-                {
-                    type: "text",
-                    text: "This is a paragraph"
-                }
-            ]
-        }
-    ]
+
+const mockDocumentStrong: IParagraph = {
+    id: "2",
+    type: "strong",
+    content: "World"
 }
-const mockDocumentBoldParagraph: IDocument = {
-    head: {
-        title: "Mock Document",
-        createAt: new Date("2021-01-01"),
-        updateAt: new Date("2021-01-01")
-    },
-    body: [
-        {
-            type: "paragraph",
-            content: [
-                {
-                    type: "strong",
-                    text: "This is a bold paragraph"
-                }
-            ]
-        }
-    ]
+
+const mockDocumentItalic: IParagraph = {
+    id: "3",
+    type: "italic",
+    content: "Ola mundo"
 }
-const mockDocumentItalicParagraph: IDocument = {
-    head: {
-        title: "Mock Document",
-        createAt: new Date("2021-01-01"),
-        updateAt: new Date("2021-01-01")
-    },
-    body: [
-        {
-            type: "paragraph",
-            content: [
-                {
-                    type: "italic",
-                    text: "This is an italic paragraph"
-                }
-            ]
-        }
-    ]
+
+const mockDocumentUnderline: IParagraph = {
+    id: "4",
+    type: "underline",
+    content: "Hello World"
 }
-const mockDocumentUnderlineParagraph: IDocument = {
-    head: {
-        title: "Mock Document",
-        createAt: new Date("2021-01-01"),
-        updateAt: new Date("2021-01-01")
-    },
-    body: [
-        {
-            type: "paragraph",
-            content: [
-                {
-                    type: "underline",
-                    text: "This is an underline paragraph"
-                }
-            ]
-        }
-    ]
-}
-const mockDocumentClassParagraph: IDocument = {
-    head: {
-        title: "Mock Document",
-        createAt: new Date("2021-01-01"),
-        updateAt: new Date("2021-01-01")
-    },
-    body: [
-        {
-            type: "paragraph",
-            content: [
-                {
-                    type: "text",
-                    className: "text-red-500",
-                    text: "This is paragraph"
-                }
-            ]
-        }
-    ]
+
+const mockDocumentTextClass: IParagraph = {
+    id: "4",
+    type: "text",
+    content: "Hello World",
+    className: "bg-red-500"
 }
 
 const mockDocument = {
-    multipleParagraph: mockDocumentMultipleParagraph,
-    uniqueParagraph: mockDocumentUniqueParagraph,
-    boldParagraph: mockDocumentBoldParagraph,
-    italicParagraph: mockDocumentItalicParagraph,
-    underlineParagraph: mockDocumentUnderlineParagraph,
-    classParagraph: mockDocumentClassParagraph
+    Text :mockDocumentText,
+    Strong :mockDocumentStrong,
+    Italic :mockDocumentItalic,
+    Underline :mockDocumentUnderline,
+    TextClass :mockDocumentTextClass
 }
 
 export default mockDocument;

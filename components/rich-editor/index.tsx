@@ -1,14 +1,29 @@
 "use client";
 
+import { IDocument } from "@/assets/types/document";
 import { useEffect } from "react";
-import useRichEditor from "@/components/rich-editor/useRichEditor";
+import useDocumentStore from "@/store/document";
+import Row from "./componentSelector/row";
 
-export default function RichEditor() {
-  const { read, write } = useRichEditor();
+interface RichEditorProps {
+  document: IDocument;
+}
 
+export default function RichEditor(props: RichEditorProps) {
+  const [setElements] = useDocumentStore(
+    (state) => [state.setElements]
+  );
+  
   useEffect(() => {
-    // console.log(read());
-  }, [read]);
+    setElements(props.document.elements);
+  }, []);
 
-  return <div>RichEditor</div>;
+  return (
+    <div>
+      {props.document.body.map((row) => {
+        const id = row.join("-");
+        return <Row key={id} body={row}/>;
+      })}
+    </div>
+  );
 }

@@ -1,8 +1,9 @@
+import { IGenericElement } from "./index";
+
 export interface IImageDefault {
     type: "default",
     src: string,
-    alt: string,
-    className?: string
+    alt: string
 }
 
 export interface IImageSource {
@@ -10,7 +11,9 @@ export interface IImageSource {
     src: string
 }
 
-export interface IImage {
+export type TypeImageContent = IImageDefault | IImageSource;
+
+export interface IImage extends IGenericElement {
     type: "image",
-    content: (IImageDefault | IImageSource)[]
+    content: TypeImageContent[]
 }

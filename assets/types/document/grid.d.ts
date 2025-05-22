@@ -1,14 +1,14 @@
-import { BodyDocumentType } from "./index";
+import { TypeDocumentBody, IGenericElement } from "./index";
 
 export interface IGridOptions {
     type: "options",
     sizes: string[]
 }
 
-export interface IGrid {
+export interface IGrid extends IGenericElement {
     type: "grid",
     content: (
         IGridOptions |
-        BodyDocumentType
+        TypeDocumentBody
     )[]
 }

@@ -1,10 +1,6 @@
-export interface IParagraphContent {
-    type: "text" | "strong" | "italic" | "underline",
-    text: string,
-    className?: string
-}
+import { IGenericElement } from "./index";
 
-export interface IParagraph {
-	type: "paragraph",
-	content: IParagraphContent[]
+export interface IParagraph extends IGenericElement {
+    type: "text" | "strong" | "italic" | "underline",
+	content: string
 }

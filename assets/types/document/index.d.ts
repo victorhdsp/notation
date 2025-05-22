@@ -3,11 +3,18 @@ import { IImage } from "./images";
 import { IGrid } from "./grid";
 import { IEmpty } from "./empty";
 
-export type BodyDocumentType = (
-    IParagraph |
-    IImage |
-    IGrid | 
-    IEmpty
+export interface IGenericElement {
+    id: string;
+    type: string;
+    className?: string;
+}
+
+export type TypeDocumentBody = (
+    string[]
+)
+
+export type TypeDocumentElements = (
+    IParagraph | IImage | IGrid | IEmpty
 )
 
 export interface IHeadDocument {
@@ -18,5 +25,6 @@ export interface IHeadDocument {
 
 export interface IDocument {
 	head: IHeadDocument,
-	body: BodyDocumentType[]
+	body: TypeDocumentBody[],
+    elements: TypeDocumentElements[]
 }

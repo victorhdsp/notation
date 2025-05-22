@@ -1,8 +1,6 @@
+import { IGenericElement } from "."
 
-export interface IEmpty {
+export interface IEmpty extends IGenericElement {
     type: "empty",
-    content: {
-        type: "placeholder",
-        text: string
-    }[]
+    content: string
 }
