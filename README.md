@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/victorhdsp/notation?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/victorhdsp/notation?style=for-the-badge)
 
-<img src="./readme-hero.png" alt="Fundo com a tela do aplicativo do Notation"
+<img src="./readme-hero.png" alt="Fundo com a tela do aplicativo do Notation">
 
 > Notation é um SaaS de anotações que imita meu sistema de anotações pessoal, porem integrado a uma inteligência artificial que vai criar exercícios baseados nas anotações.
 
